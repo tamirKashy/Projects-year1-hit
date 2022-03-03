@@ -16,7 +16,7 @@ Magazine Stack_Create() {
 	Struct.Size = 1;
 	return Struct;
 }
-int Stack_size(Magazine* Struct) {
+int Stack_Size(Magazine* Struct) {
 	return Struct->Size;
 }
 int Stack_Is_Empty(Magazine* Struct) {
@@ -56,6 +56,7 @@ int Stack_Top(Magazine* Struct) {
 	else return Struct->Arr[Struct->Index - 1];
 }
 int Stack_Pop(Magazine* Struct) {
+	if (Stack_Is_Empty(Struct) == 1) return -1;
 	int p = Struct->Arr[(Struct->Index) - 1];
 	Struct->Index--;
 	if (Struct->Index == Struct->Size / 2 && Struct->Size > 1) Stack_Decrease(Struct);
